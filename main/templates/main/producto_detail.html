@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link href=""    rel="stylesheet" type="text/css">
   <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <meta charset="utf-8">
     <title> LinioExp </title>
   </head>
@@ -30,10 +33,10 @@
       <li><strong>Proveedor:</strong> {{ object.proveedor }}</li>
     </ul>
     <div class="block">
-    <a href="{% url 'add-to-cart' product_pk=object.pk %}" class='button is-primary'>
+    <a href="{% url 'add-to-cart' product_pk=object.pk %}" class="btn btn-success" role="button">
       Añadir al carrito
     </a>
-    <a href="{% url 'pedido-detail' %}" class='button'>
+    <a href="{% url 'pedido-detail' %}" class='btn btn-success' role="button">
       Ver carrito
     </a>
     </div>
