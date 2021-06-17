@@ -5,10 +5,10 @@
     <!-- Usaremos utf-8 como formato de codificación -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Título de nuestra página -->
-    <title>Linio Expres - Compras por internet</title>
+    <title>La Pichanga - Las mejores camisetas de fútbol</title>
     <div class="content">
     <form action="{% url 'producto-list' %}" method="get">
-        <input class="input is-rounded" type="text" name="q" placeholder="Busca tu producto...">
+        <input class="input is-rounded" type="text" name="q" placeholder="Busca tu camiseta...">
     </form>
     </div>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,9 @@
 <body>
 <section>
     <div>
-        <h1 class="title is-1"> Linio Express </h1>
+        <a href="">
+            <h1 class="title is-1" style="color:red" > La Pichanga </h1>
+        </a>
         <hr>
         {% block content %}
         {% endblock %}
