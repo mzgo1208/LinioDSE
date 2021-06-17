@@ -6,13 +6,12 @@ class Proveedor(models.Model):
     razon_social = models.CharField(max_length=20)
     telefono = models.CharField(max_length=9)
 
-    def __str_(self):
+    def __str__(self):
         return self.razon_social
 
 class Categoria(models.Model):
     codigo = models.CharField(max_length=4)
     nombre = models.CharField(max_length=50)
-
     def __str__(self):
         return self.nombre
 
