@@ -8,15 +8,17 @@
     <title> LinioExp </title>
   </head>
   <body>
-    <h1> Linio Exp </h1>
+    <a href="{% url 'home' %}">
+        <h1 class="title is-1" style="color:red" > La Pichanga </h1>
+    </a>
     <hr>
     <h3> {{ object.nombre }} </h3>
     <div class="columns">
     {% for image in object.images.all %}
     <div class="column is-3">
-        <figure class="image is-square">
+        <figure class="image is-square" >
             <a href="{{ image.image.url }}">
-                <img src="{{ image.image.url }}" alt="No hay imagen disponible">
+                <img src="{{ image.image.url }}" alt="No hay imagen disponible" width="300" height="300" >
             </a>
         </figure>
     </div>

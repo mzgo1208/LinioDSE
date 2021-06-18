@@ -7,18 +7,22 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <body>
-    <h1> LinioExp </h1>
+    <a href="{% url 'home' %}">
+        <h1 class="title is-1" style="color:red" > La Pichanga </h1>
+    </a>
     <hr>
-    <h3> Productos </h3>
+    <h3> Camisetas </h3>
     <ul>
-    <div class="columns is-multiline">
+    <div class="columns is-multiline" width="100px" height="100px">
     {% for producto in object_list %}
         <div class="column is-4">
             <div class="card">
                 <div class="card-image">
+                    <a href="{% url 'producto-detail' producto.pk %}">
                     <figure class="image">
-                        <img src="{{ producto.images.first.image.url|default:'https://via.placeholder.com/128' }}" alt="Imagen no disponible">
+                        <img src="{{ producto.images.first.image.url|default:'https://via.placeholder.com/128' }}" alt="Imagen no disponible" width="200" height="200">
                     </figure>
+                    </a>
                 </div>
                 <div class="card-content">
                     <h6>
