@@ -29,7 +29,7 @@ class Producto(models.Model):
     proveedor = models.ForeignKey('Proveedor', on_delete=models.SET_NULL, null=True)
 
     # Atributos
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=40)
     descripcion = models.TextField()
     precio = models.FloatField()
     estado = models.CharField(max_length=3)
