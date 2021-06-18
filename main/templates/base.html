@@ -18,10 +18,20 @@
 <body>
 <section>
     <div>
-        <a href="{% url 'home' %}">
-            <h1 class="title is-1" style="color:red" > La Pichanga </h1>
-        </a>
+        <div class="columns">
+            <div class="column">
+                <a href="{% url 'home' %}">
+                <h1 class="title is-1" style="color:red" > La Pichanga </h1>
+                </a>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="column">
+                <a class="button" href="{% url 'logout' %}">Cierra Sesion</a>
+            </div>
+            {% endif %}
         <hr>
+        </div>
+
         {% block content %}
         {% endblock %}
     </div>
