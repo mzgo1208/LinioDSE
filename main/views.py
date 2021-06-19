@@ -24,7 +24,7 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latest_products'] = Producto.objects.all()[:5]
+        context['latest_products'] = Producto.objects.all()[:3]
 
         return context
 
@@ -94,11 +94,25 @@ class ProductListView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
+        query_c=self.request.GET.get('categoria')
         if query is not None:
             object_list = Producto.objects.filter(nombre__icontains=query)
             return object_list
+
+        elif query_c is not None:
+            categoria=Categoria.objects.get(id=query_c)
+            object_list=Producto.objects.filter(categoria_id=int(query_c))
+            print(categoria.nombre)
+            return(object_list)
         else:
             return Producto.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categorias"]=Categoria.objects.all()
+        return context
+
+
 
 class ProductDetailView(DetailView):
     model = Producto

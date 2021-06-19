@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<link href=""    rel="stylesheet" type="text/css">
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <meta charset="utf-8">
-    <title> LinioExp </title>
+    <title> La Pichanga </title>
   </head>
   <body>
     <a href="{% url 'home' %}">
-        <h1 class="title is-1" style="color:red" > La Pichanga </h1>
+        <center>
+            <img src="https://bit.ly/3gGmTY1">
+        </center>
     </a>
+    <ul>
+      <a href="{% url 'home' %}" class="button is-black">Inicio</a>
+      <a href="{% url 'producto-list' %}" class="button is-dark">Camisetas</a>
+    </ul>
     <hr>
-    <h3> {{ object.nombre }} </h3>
+    <h3 class="title is-1"> {{ object.nombre }} </h3>
     <div class="columns">
     {% for image in object.images.all %}
     <div class="column is-3">
@@ -27,24 +32,25 @@
     </div>
     {% endfor %}
     </div>
+
     <ul>
       <li><strong>Precio:</strong> {{ object.precio }}</li>
+      <br>
       <li><strong>Descripcion:</strong> {{ object.descripcion }}</li>
+      <br>
       <li><strong>Categoria:</strong> {{ object.categoria.nombre }}</li>
-      <li><strong>Proveedor:</strong> {{ object.proveedor }}</li>
+      <br>
+      <li><strong>Marca:</strong> {{ object.proveedor }}</li>
+    <br>
     </ul>
     <div class="block">
-    <a href="{% url 'add-to-cart' product_pk=object.pk %}" class="btn btn-success" role="button">
+    <a href="{% url 'add-to-cart' product_pk=object.pk %}" class="button is-success" role="button">
       Añadir al carrito
     </a>
-    <a href="{% url 'pedido-detail' %}" class='btn btn-success' role="button">
+    <a href="{% url 'pedido-detail' %}" class='button is-info' >
       Ver carrito
     </a>
     </div>
     <hr>
-    <ul>
-      <li><a href="{% url 'producto-list' %}">Ver Lista de Productos</a></li>
-      <li><a href="{% url 'home' %}">Inicio</a></li>
-    </ul>
   </body>
 </html>

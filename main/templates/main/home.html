@@ -1,18 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
+     <ul>
+      <a href="{% url 'home' %}" class="button is-black">Inicio</a>
+      <a href="{% url 'producto-list' %}" class="button is-dark">Camisetas</a>
+    </ul>
     {% if user.is_authenticated %}
-    <h3> Hola {{ user.get_username }} </h3>
+    <div align="right">
+    <h3 > Hola {{ user.get_username }} </h3>
     <p>
-      <a href="{% url 'logout' %}">Cierra Sesion</a>
+      <a href="{% url 'logout' %}" class="button is-black">Cierra Sesion</a>
     </p>
     {% else %}
-    <h3> Hola </h3>
-    <p>
-      <a href="{% url 'login' %}">Inicia Sesion</a> o
-      <a href="{% url 'register' %}">Registrate</a>
+    <p align="right">
+      <a href="{% url 'login' %}" class="button"> Inicia Sesion</a>
+      <a href="{% url 'register' %}" class="button">Registrate</a>
     </p>
     {% endif %}
+    </div>
 
     <hr>
 
@@ -25,21 +30,37 @@
         {% endfor %}
     {% endif %}
 
-    <h5> <strong> Las mejores camisetas </strong> </h5>
+    <h3 class="title is-1" align="center" >Las mejores camisetas </h3>
     <ul>
+      <div class="columns is-multiline" width="100px" height="100px">
       {% for producto in latest_products %}
-        <li>
-          <a href="{% url 'producto-detail' producto.pk %}">
-            {{ producto.nombre }}
-          </a>
-          - {{ producto.precio }}
-        </li>
+        <div class="column is-4">
+            <div class="card">
+                <div class="card-image">
+                    <a href="{% url 'producto-detail' producto.pk %}">
+                    <figure class="image">
+                        <img src="{{ producto.images.first.image.url|default:'https://via.placeholder.com/128' }}" alt="Imagen no disponible" width="200" height="200">
+                    </figure>
+                    </a>
+                </div>
+                <div class="card-content" align="center">
+                    <h6 class="title is-4">
+                        <a href="{% url 'producto-detail' producto.pk %}">
+                            {{ producto.nombre }}
+                        </a>
+                    </h6>
+                    <p class="subtitle is-4">$ {{ producto.precio }}</p>
+                </div>
+            </div>
+        </div>
       {% empty %}
         <li>Aun no hay productos disponibles.</li>
       {% endfor %}
+    </div>
     </ul>
     <hr>
-    <ul>
-      <li><a href="{% url 'producto-list' %}">Ver Lista de Productos Completa</a></li>
-    </ul>
+
+<footer>
+    HOLA
+</footer>
 {% endblock %}

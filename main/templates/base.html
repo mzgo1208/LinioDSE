@@ -6,11 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Título de nuestra página -->
     <title>La Pichanga - Las mejores camisetas de fútbol</title>
-    <div class="content">
-    <form action="{% url 'producto-list' %}" method="get">
-        <input class="input is-rounded" type="text" name="q" placeholder="Busca tu camiseta...">
-    </form>
-    </div>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
@@ -18,18 +13,18 @@
 <body>
 <section>
     <div>
-        <div class="columns">
-            <div class="column">
-                <a href="{% url 'home' %}">
-                <h1 class="title is-1" style="color:red" > La Pichanga </h1>
-                </a>
-            </div>
-            {% if user.is_authenticated %}
-            <div class="column">
-                <a class="button" href="{% url 'logout' %}">Cierra Sesion</a>
-            </div>
-            {% endif %}
+        <a href="{% url 'home' %}">
+            <center>
+                <img src="https://bit.ly/3gGmTY1">
+            </center>
+        </a>
         <hr>
+        <div class="content">
+        <form action="{% url 'producto-list' %}" method="get">
+            <center>
+                <input class="input is-rounded" type="text" name="q" style="width : 700px" placeholder="Busca tu camiseta">
+            </center>
+        </form>
         </div>
 
         {% block content %}
