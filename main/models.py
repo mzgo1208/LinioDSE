@@ -56,7 +56,6 @@ class Pedido(models.Model):
     # Atributos
     fecha_creacion = models.DateTimeField(auto_now=True)
     fecha_entrega = models.DateTimeField(blank=True, null=True)
-    estado = models.CharField(max_length=3)
     direccion_entrega = models.CharField(max_length=100, blank=True, null=True)
     tarifa = models.FloatField(blank=True, null=True)
 
