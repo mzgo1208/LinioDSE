@@ -223,6 +223,6 @@ class CompletePaymentView(View):
         pedido.repartidor = Colaborador.objects.order_by('?').first()
         # Guardamos los cambios
         pedido.save()
-        messages.success(request, 'Gracias por tu compra! Un repartidor ha sido asignado a tu pedido.')
+        messages.success(request, 'Gracias por tu compra crack! Un repartidor ha sido asignado a tu pedido.')
         return redirect('home')
 

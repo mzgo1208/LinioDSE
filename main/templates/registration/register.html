@@ -2,11 +2,21 @@
 
 {% block content %}
 
+<style type="text/css">
+    table, input, p {
+        margin-left: 50PX;
+        font-size:20px;
+    }
+</style>
 <form method="post">
+<table>
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Registrate">
-</form>
+    {{ form.as_table }}
+
+</table>
+    <input type="submit" value="Registrate" class="button is-success">
+    </form>
+
 
 
 {% endblock %}

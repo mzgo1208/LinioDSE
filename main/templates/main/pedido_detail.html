@@ -2,19 +2,35 @@
 
 {% block content %}
 
-<h3 class="title"> Carrito </h3>
+<style>
+  .block{
+    margin-left: 20px;
+  }
+  .content{
+    margin-left: 20px;
+  }
+  h3{
+  margin-left: 20px;
+  }
+</style>
+<ul>
+  <a href="{% url 'home' %}" class="button is-black">Inicio</a>
+  <a href="{% url 'producto-list' %}" class="button is-dark">Camisetas</a>
+</ul>
+<br>
+
+
+<h3 class="title is-1"> Carrito de compras </h3>
     <div class="block">
-        <h5 class="subtitle"> Información General </h5>
-        <div class="content">
+        <h5 class="title is-3" style="color:grey"> Información General </h5>
             <ul>
-              <li> <strong>Cliente:</strong> {{ object.cliente.user_profile.user.get_username }}</li>
+              <li><strong>Cliente:</strong> {{ object.cliente.user_profile.user.get_username }} </li>
+
               <li> <strong>Fecha de compra:</strong> {{ object.fecha_creacion }}</li>
             </ul>
-        </div>
     </div>
     <div class="block">
-        <h5 class="subtitle"> Detalle </h5>
-        <div class="content">
+        <h5 class="title is-3" style="color:grey"> Detalle </h5>
             <ul>
               {% for detalle in detalles %}
                 <li>
@@ -28,16 +44,11 @@
                 </li>
               {% endfor %}
             </ul>
-        </div>
-    </div>
+        <br>
     <a href="{% url 'pedido-update' pk=object.pk %}" class='button is-info'>
-      Pagar
+      Checkout
     </a>
-    <hr>
-    <div class="content">
-        <ul>
-          <li><a href="{% url 'producto-list' %}">Ver Lista de Productos</a></li>
-          <li><a href="{% url 'home' %}">Inicio</a></li>
-        </ul>
     </div>
+
+    <hr>
 {% endblock %}

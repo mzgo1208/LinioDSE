@@ -1,13 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-     <ul>
+    <div class="content">
+    <form action="{% url 'producto-list' %}" method="get">
+        <center>
+            <input class="input is-rounded" type="text" name="q" style="width : 700px" placeholder="Busca tu camiseta">
+        </center>
+    </form>
+    </div>
+    <ul>
       <a href="{% url 'home' %}" class="button is-black">Inicio</a>
       <a href="{% url 'producto-list' %}" class="button is-dark">Camisetas</a>
     </ul>
     {% if user.is_authenticated %}
     <div align="right">
-    <h3 > Hola {{ user.get_username }} </h3>
+    <h3  class="title is-4"> Hola {{ user.get_username }} </h3>
     <p>
       <a href="{% url 'logout' %}" class="button is-black">Cierra Sesion</a>
     </p>
@@ -30,7 +37,8 @@
         {% endfor %}
     {% endif %}
 
-    <h3 class="title is-1" align="center" >Las mejores camisetas </h3>
+<div class="powr-image-slider" id="e9348a90_1624229265"></div><script src="https://www.powr.io/powr.js?platform=html"></script>
+    <h3 class="title is-1" align="center" >Las más vendidas </h3>
     <ul>
       <div class="columns is-multiline" width="100px" height="100px">
       {% for producto in latest_products %}
@@ -60,7 +68,4 @@
     </ul>
     <hr>
 
-<footer>
-    HOLA
-</footer>
 {% endblock %}
