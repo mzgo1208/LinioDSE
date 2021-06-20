@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title> LinioExp </title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   </head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <body>
     <a href="{% url 'home' %}">
         <center>
@@ -20,19 +20,26 @@
     </div>
     <hr>
     <h3 class="title is-1" align="center" >Camisetas </h3>
+<style>
+    label, select{
+        margin-left: 50PX;
+        font-size:20px;
+    }
+    input{
 
-
+    }
+</style>
     <form method="get">
         <label> Categoría </label>
         <input class="input is-rounded" type="hidden" name="c"  >
-        <select name="categoria" id="categoria" style="margin-bottom:24px">
-           <option value="Categoria"  >----</option>
+        <select name="categoria" id="categoria" style="margin-bottom:24px" >
+           <option value="5"  >----</option>
             {% for categoria in categorias %}
 
             <option value="{{categoria.id}}"  >{{categoria.nombre}}</option>
             {% endfor %}
         </select>
-        <input type="submit" name="featured" value="Filter">
+        <input type="submit" name="featured" class="button is-info is-outlined" value="Filtrar">
     </form>
 
 
