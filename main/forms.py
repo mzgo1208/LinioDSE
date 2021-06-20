@@ -12,6 +12,7 @@ class UserForm(UserCreationForm):
     # Profile attributes
     documento_identidad = forms.CharField(max_length=8)
     fecha_nacimiento = forms.DateField()
+    estado = forms.CharField(max_length=3)
     ## Opciones de genero
     MASCULINO = 'MA'
     FEMENINO = 'FE'
@@ -40,6 +41,7 @@ class UserForm(UserCreationForm):
         'email',
         'documento_identidad',
         'fecha_nacimiento',
+        'estado',
         'genero',
         'is_cliente',
         'preferencias',

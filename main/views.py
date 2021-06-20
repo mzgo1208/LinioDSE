@@ -51,10 +51,11 @@ class RegistrationView(FormView):
         # Create Profile
         documento_identidad = form.cleaned_data['documento_identidad']
         fecha_nacimiento = form.cleaned_data['fecha_nacimiento']
+        estado = form.cleaned_data['estado']
         genero = form.cleaned_data['genero']
 
         user_profile = Profile.objects.create(user=user, documento_identidad=documento_identidad,
-                                              fecha_nacimiento=fecha_nacimiento,  genero=genero)
+                                              fecha_nacimiento=fecha_nacimiento, estado=estado, genero=genero)
         user_profile.save()
 
         # Create Cliente if needed
