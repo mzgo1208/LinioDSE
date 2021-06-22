@@ -24,11 +24,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="586d2feb-5660-477c-801f-7741eb8feb8a">
-        <schema name="main" object-types="table, view, constraint, index, column, dataset trigger" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="586d2feb-5660-477c-801f-7741eb8feb8a">
@@ -47,6 +43,9 @@ WHERE categoria_id=6]]></console>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="586d2feb-5660-477c-801f-7741eb8feb8a" />
     <connection id="be35ea3a-0179-448a-a47d-396e932cbaca" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="586d2feb-5660-477c-801f-7741eb8feb8a" dataset="main.django_content_type" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
